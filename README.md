@@ -1,5 +1,4 @@
 # QMaxUSE Project
-=================
 
 ### More to come very soon!
 
