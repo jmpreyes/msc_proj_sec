@@ -1,7 +1,7 @@
 # QMaxUSE Project
 =================
 
-## More to come very soon!
+### More to come very soon!
 
 I thank Hao Wu [@classicwuhao](https://github.com/classicwuhao) for giving me the opportunity to work on this project.
-Link: [MaxUSE](https://github.com/classicwuhao/maxuse)
+<br>Link: [MaxUSE](https://github.com/classicwuhao/maxuse)
