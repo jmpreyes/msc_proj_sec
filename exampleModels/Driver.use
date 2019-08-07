@@ -1,0 +1,50 @@
+model Driver
+
+class Person
+attributes
+	name: String
+	address: String
+	age: Integer
+end
+
+class Driver < Person
+attributes
+	driverLicence: Integer
+	isValidDriver: Boolean
+operations
+	checkIfValidDriver(): Boolean
+end
+
+class Vehicle
+attributes
+	vehicleID: Integer
+	color: String
+end
+
+class Car < Vehicle
+end
+
+class Truck < Vehicle
+end
+
+class Motorcycle < Vehicle
+end
+
+association Drives between
+	Driver [1..1]
+	Vehicle [1..1]
+end
+
+constraints
+
+context Person
+inv: self.name.size() > 0
+inv: self.age >= 18
+inv: Person.allInstances()->forAll(p1,p2|p1.name <> p2.name)
+
+context Driver
+inv: Driver.allInstances()->forAll(d1,d2|d1.driverLicence <> d2.driverLicence)
+
+context Vehicle
+inv: self.vehicleID > 0
+inv: Vehicle.allInstances()->forAll(v1,v2|v1.vehicleID <> v2.vehicleID)
