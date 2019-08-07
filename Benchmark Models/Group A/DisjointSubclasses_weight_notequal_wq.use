@@ -1,0 +1,37 @@
+model DisjointSubclasses
+
+@Rank = 2
+class A
+end
+
+@Rank = 2
+class B < A
+end
+
+@Rank = 2
+class C < A
+end
+
+@Rank = 2
+class D < B, C
+end
+
+constraints
+
+context B
+	@Rank = 8
+	inv: B.allInstances()->forAll(b|C.allInstances()->forAll(c|b<>c))
+
+module QueryA4
+	select *@2 with B::*@8 as q0
+	select A, C, D with *::*@1 as q1
+	select only *@1 as q2
+	select B.* with B::* inject {B.allInstances()->isEmpty()} as q3
+	select * but B as q4
+	select q0 but B as q5
+	select B@2, D@2 with B::*@8 inject {B.allInstances()->forAll(b|D.allInstances()->forAll(d|b<>d))} as q6
+	select A with A::* + select B with B::* as q7
+	select *.*@2 as q8
+	select A, B inject {A.allInstances()->forAll(a|B.allInstances()->forAll(b|a<>b))} + 
+		select C, D inject {C.allInstances()->forAll(c|D.allInstances()->forAll(d|c<>d))} as q9
+end
