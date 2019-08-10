@@ -1,0 +1,82 @@
+-- An example model showing a relation between passengers and air travel
+model Flights
+
+enum Seating {Economy, Business, FirstClass}
+
+class Person
+attributes
+	name: Integer
+	age: Integer
+	seat: Seating
+end
+
+class Flight
+attributes
+	flightNo: Integer
+	departTime: Integer
+	destination: Integer
+operations
+	getAvailableSeats(): Integer
+end
+
+class Airplane
+attributes
+	totalSeats: Integer
+	aircraftType: Integer
+operations
+	getTotalSeats(): Integer
+end
+
+association HasFlight between
+	Person [0..*] role passengers
+	Flight [0..*] role flights
+end
+
+association HasAirplane between
+	Flight [0..*] role flights
+	Airplane [1..1] role plane
+end
+
+association IsPartOf between
+	Airplane [1..1]
+	Flight [1..*]
+end
+
+constraints
+
+context Person
+	@Rank = 1
+	-- inv 1
+	inv: Person.allInstances()->forAll(p|p.seat = #Economy or p.seat = #Business or p.seat = #FirstClass)
+	@Rank = 1
+	-- inv2
+	inv: Person.allInstances()->forAll(p1,p2|p1.name <> p2.name)
+
+context Flight
+	@Rank = 1
+	-- inv 3
+	inv: self.flightNo > 0
+	@Rank = 1
+	-- inv 4
+	inv: Flight.allInstances()->forAll(f1,f2|f1.flightNo <> f2.flightNo)
+
+context Airplane
+	@Rank = 1
+	-- inv 5
+	inv: self.totalSeats > 0
+
+module QueryTest
+	select Person.* with Person::* as q0
+	select Flight.* with Flight::* as q1
+	select Airplane.* with Airplane::* as q2
+	select Person.*, Person:*:* with Person::* but Person::inv1 as q3
+	select Person.name, Flight.*, Airplane.*, *:*:* with *::* but Flight::inv3, Airplane::inv5 as q4
+end
+
+-- Binary expressions to test using terminal
+-- QueryTest.q0 + QueryTest.q1 + QueryTest.q2
+-- QueryTest.q1 - QueryTest.q2
+-- QueryTest.q2 - QueryTest.q1
+-- QueryTest.q0 & QueryTest.q4
+-- QueryTest.q0 + QueryTest.q1 - QueryTest.q2 - QueryTest.q3 & QueryTest.q4
+

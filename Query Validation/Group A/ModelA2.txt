@@ -1,0 +1,137 @@
+Query Validation for Model A2
+
+Calling QueryA2.q0...
+Expected selections:
+	Classes: A, B, C, D
+	Attributes: N/A
+	Associations: N/A
+	Invariants: N/A
+Actual selections:
+	Classes: A, B, C, D
+	Attributes: N/A
+	Associations: N/A
+	Invariants: N/A
+SUCCESS
+
+Calling QueryA2.q1...
+Expected selections:
+	Classes: A, B, C, D
+	Attributes: N/A
+	Associations: N/A
+	Invariant: B::inv1
+Actual selections:
+	Classes: A, B, C, D
+	Attributes: N/A
+	Associations: N/A
+	Invariant: B::inv1
+SUCCESS
+
+Calling QueryA2.q2...
+Expected selections:
+	Class: B
+	Attributes: N/A
+	Associations: N/A
+	Invariant: B::inv1
+Actual selections:
+	Class: B
+	Attributes: N/A
+	Associations: N/A
+	Invariant: B::inv1
+SUCCESS
+
+Calling QueryA2.q3...
+Expected selections:
+	Classes: A, C
+	Attributes: N/A
+	Associations: N/A
+	Invariants: N/A
+Actual selections:
+	Classes: A, C
+	Attributes: N/A
+	Associations: N/A
+	Invariants: N/A
+SUCCESS
+
+Calling QueryA2.q4...
+Expected selections:
+	Classes: B, D
+	Attributes: N/A
+	Associations: N/A
+	Invariants: N/A
+Actual selections:
+	Classes: B, D
+	Attributes: N/A
+	Associations: N/A
+	Invariants: N/A
+SUCCESS
+
+Calling QueryA2.q3 + QueryA2.q4...
+Expected selections:
+	Classes: A, B, C, D
+	Attributes: N/A
+	Associations: N/A
+	Invariants: N/A
+Actual selections:
+	Classes: A, B, C, D
+	Attributes: N/A
+	Associations: N/A
+	Invariants: N/A
+SUCCESS
+
+
+Calling QueryA2.q0 - QueryA2.q2...
+Expected selections:
+	Classes: A, C, D
+	Attributes: N/A
+	Associations: N/A
+	Invariants: N/A
+Actual selections:
+	Classes: A, C, D
+	Attributes: N/A
+	Associations: N/A
+	Invariants: N/A
+SUCCESS
+
+Calling QueryA2.q1 & QueryA2.q2...
+Expected selections:
+	Class: B
+	Attributes: N/A
+	Associations: N/A
+	Invariants: B::inv1
+Actual selections:
+	Class: B
+	Attributes: N/A
+	Associations: N/A
+	Invariants: B::inv1
+SUCCESS
+
+Calling QueryA2.q2 + QueryA2.q3 + QueryA2.q4...
+Expected selections:
+	Classes: A, B, C, D
+	Attributes: N/A
+	Associations: N/A
+	Invariants: B::inv1
+Actual selections:
+	Classes: A, B, C, D
+	Attributes: N/A
+	Associations: N/A
+	Invariants: B::inv1
+SUCCESS
+
+Calling QueryA2.q1 - QueryA2.q2 + QueryA2.q3 & QueryA2.q4...
+Expected selections:
+	Class: D
+	Attributes: N/A
+	Associations: N/A
+	Invariants: N/A
+Actual selections:
+	Class: D
+	Attributes: N/A
+	Associations: N/A
+	Invariants: N/A
+SUCCESS
+
+Total number of queries: 10
+Success: 10
+Failure: 0
+

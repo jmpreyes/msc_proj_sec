@@ -1,0 +1,136 @@
+Query Validation for Model B3
+
+Calling QueryB3.q0...
+Expected selections:
+	Classes: Class1, Class2, Class3, Class11, Class28
+	Attributes: Class3.Class3BoolAttr0, Class3.Class3BoolAttr1, Class3.Class3BoolAttr2, Class3.Class3IntAttr3, Class3.Class3IntAttr4, Class3.Class3EnumAttr5
+	Associations: Class2_Class28 (Class2, Class28), Class3_Class11 (Class3, Class11)
+	Invariants: Class1::inv3, Class1::inv4, Class2::inv5, Class2::inv6, Class3::inv7, Class7::inv8
+Actual selections:
+	Classes: Class1, Class2, Class3, Class11, Class28
+	Attributes: Class3.Class3BoolAttr0, Class3.Class3BoolAttr1, Class3.Class3BoolAttr2, Class3.Class3IntAttr3, Class3.Class3IntAttr4, Class3.Class3EnumAttr5
+	Associations: Class2_Class28 (Class2, Class28), Class3_Class11 (Class3, Class11)
+	Invariants: Class1::inv3, Class1::inv4, Class2::inv5, Class2::inv6, Class3::inv7, Class7::inv8
+FAIL -- Attributes of Class1, Class8, and Class24 are also selected (inheritance)
+
+Calling QueryB3.q1...
+Expected selections:
+	Classes: Class10, Class11, Class12
+	Attributes: N/A
+	Associations: N/A
+	Invariants: Class10::inv26, Class11::inv28, Class12::inv30
+Actual selections:
+	Classes: Class10, Class11, Class12
+	Attributes: N/A
+	Associations: N/A
+	Invariants: Class10::inv26, Class11::inv28, Class12::inv30
+SUCCESS
+
+Calling QueryB3.q2...
+Expected selections:
+	Class: Class7, Class14
+	Attributes: Class7.Class7BoolAttr0, Class7.Class7BoolAttr1
+	Associations: Class7_Class14 (Class7, Class14)
+	Invariants: Class7::inv17, Class7::inv18, Class7::inv19
+Actual selections:
+	Class: Class7, Class14
+	Attributes: Class7.Class7BoolAttr0, Class7.Class7BoolAttr1
+	Associations: Class7_Class14 (Class7, Class14)
+	Invariants: Class7::inv17, Class7::inv18, Class7::inv19
+SUCCESS
+
+Calling QueryB3.q3...
+Expected selections:
+	Classes: Class24, Class26
+	Attributes: Class24.Class24BoolAttr0, Class24.Class24BoolAttr1, Class24.Class24IntAttr2, Class24.Class24EnumAttr4, Class24.Class24EnumAttr3, Class26.Class26BoolAttr0, Class26.Class26BoolAttr1, Class26.Class26IntAttr2, Class26.Class26EnumAttr3, Class26.Class26EnumAttr4
+	Associations: N/A
+	Invariants: Class24::inv49, Class24::inv50, Class26::inv56, Class26::inv57
+Actual selections:
+	Classes: Class24, Class26
+	Attributes: Class1.Class1BoolAttr0, Class1.Class1BoolAttr1, Class1.Class1BoolAttr2, Class1.Class1IntAttr3, Class1.Class1IntAttr4, Class1.Class1EnumAttr5, Class3.Class3BoolAttr0, Class3.Class3BoolAttr1, Class3.Class3BoolAttr2, Class3.Class3IntAttr3, Class3.Class3IntAttr4, Class3.Class3EnumAttr5, Class8.Class8BoolAttr0, Class8.Class8BoolAttr1, Class8.Class8IntAttr2, Class8.Class8IntAttr3, Class8.Class8EnumAttr4, Class23.Class23BoolAttr0, Class23.Class23BoolAttr1, Class23.Class23IntAttr2, Class23.Class23EnumAttr4, Class23.Class23EnumAttr3, Class24.Class24BoolAttr0, Class24.Class24BoolAttr1, Class24.Class24IntAttr2, Class24.Class24EnumAttr4, Class24.Class24EnumAttr3, Class26.Class26BoolAttr0, Class26.Class26BoolAttr1, Class26.Class26IntAttr2, Class26.Class26EnumAttr3, Class26.Class26EnumAttr4, Class27.Class27BoolAttr0, Class27.Class27BoolAttr1, Class27.Class27IntAttr2, Class27.Class27EnumAttr4, Class27.Class27EnumAttr3, Class28.Class28BoolAttr0, Class28.Class28IntAttr1, Class28.Class28EnumAttr2
+	Associations: N/A
+	Invariants: Class24::inv49, Class24::inv50, Class26::inv56, Class26::inv57
+FAIL -- Attributes of Class1, Class3, Class8, Class23, Class27, and Class28 are also selected (inheritance)
+
+Calling QueryB3.q4...
+Expected selections:
+	Classes: Class10, Class11, Class26
+	Attributes: N/A
+	Associations: Class10_Class26 (Class10, Class26), Class11_Class10 (Class11, Class10)
+	Invariants: N/A
+Actual selections:
+	Classes: Class10, Class11, Class26
+	Attributes: N/A
+	Associations: Class10_Class26 (Class10, Class26), Class11_Class10 (Class11, Class10)
+	Invariants: N/A
+SUCCESS
+
+Calling QueryB3.q0 & QueryB3.q1 & QueryB3.q2...
+Expected selections:
+	Classes: N/A
+	Attributes: N/A
+	Associations: N/A
+	Invariants: N/A
+Actual selections:
+	Classes: N/A
+	Attributes: N/A
+	Associations: N/A
+	Invariants: N/A
+SUCCESS
+
+Calling QueryB3.q1 - QueryB3.q4...
+Expected selections:
+	Class: Class12
+	Attributes: N/A
+	Associations: N/A
+	Invariants: Class10::inv26, Class11::inv28, Class12::inv30
+Actual selections:
+	Class: Class12
+	Attributes: N/A
+	Associations: N/A
+	Invariants: Class10::inv26, Class11::inv28, Class12::inv30
+SUCCESS
+
+Calling QueryB3.q4 - QueryB3.q1...
+Expected selections:
+	Class: Class26
+	Attributes: N/A
+	Associations: Class10_Class26 (Class10, Class26), Class11_Class10 (Class11, Class10)
+	Invariants: N/A
+Actual selections:
+	Class: Class26
+	Attributes: N/A
+	Associations: Class10_Class26 (Class10, Class26), Class11_Class10 (Class11, Class10)
+	Invariants: N/A
+SUCCESS
+
+Calling QueryB3.q2 - QueryB3.q3 + QueryB3.q4...
+Expected selections:
+	Classes: Class7, Class10, Class11, Class14, Class26
+	Attributes: Class7.Class7BoolAttr0, Class7.Class7BoolAttr1
+	Associations: Class7_Class14 (Class7, Class14), Class10_Class26 (Class10, Class26), Class11_Class10 (Class11, Class10)
+	Invariants: Class7::inv17, Class7::inv18, Class7::inv19
+Actual selections:
+	Classes: Class7, Class10, Class11, Class14, Class26
+	Attributes: Class7.Class7BoolAttr0, Class7.Class7BoolAttr1
+	Associations: Class7_Class14 (Class7, Class14), Class10_Class26 (Class10, Class26), Class11_Class10 (Class11, Class10)
+	Invariants: Class7::inv17, Class7::inv18, Class7::inv19
+SUCCESS
+
+Calling QueryAttrs.q2 + QueryAttrs.q7 + QueryAttrs.q10 - QueryB3.q3 & QueryB3.q1...
+Expected selections:
+	Class: Class10
+	Attributes: N/A
+	Associations: N/A
+	Invariants: N/A
+Actual selections:
+	Class: Class10
+	Attributes: N/A
+	Associations: N/A
+	Invariants: N/A
+SUCCESS
+
+Total number of queries: 10
+Success: 8
+Fail: 2
+

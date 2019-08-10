@@ -1,0 +1,135 @@
+Query Validation for Model A1
+
+Calling QueryA1.q0...
+Expected selections:
+	Class: Person
+	Attributes: Person.name, Person.gender, Person.civstat
+	Associations: N/A
+	Invariants: N/A
+Actual selections:
+	Class: Person
+	Attributes: Person.name, Person.gender, Person.civstat
+	Associations: N/A
+	Invariants: N/A
+SUCCESS
+
+Calling QueryA1.q1...
+Expected selections:
+	Class: Person
+	Attributes: Person.name, Person.gender, Person.civstat
+	Associations: N/A
+	Invariants: Person::inv1, Person::inv2, Person::inv3
+Actual selections:
+	Class: Person
+	Attributes: Person.name, Person.gender, Person.civstat
+	Associations: N/A
+	Invariants: Person::inv1, Person::inv2, Person::inv3
+SUCCESS
+
+Calling QueryA1.q2...
+Expected selections:
+	Class: Person
+	Attribute: Person.name
+	AssociationS: N/A
+	Invariant: Person::inv1
+Actual selections:
+	Class: Person
+	Attribute: Person.name
+	AssociationS: N/A
+	Invariant: Person::inv1
+SUCCESS
+
+Calling QueryA1.q3...
+Expected selections:
+	Class: Person
+	Attribute: Person.gender
+	Associations: Marriage (Person)
+	Invariants: Person::inv2, Person::inv3
+Actual selections:
+	Class: Person
+	Attribute: Person.gender
+	Associations: Marriage (Person)
+	Invariants: Person::inv2, Person::inv3
+SUCCESS
+
+Calling QueryA1.q4...
+Expected selections:
+	Classes: N/A
+	Attributes: N/A
+	Association: Marriage (Person)
+	Invariants: N/A
+Actual selections:
+	Classes: N/A
+	Attributes: N/A
+	Association: Marriage (Person)
+	Invariants: N/A
+SUCCESS
+
+Calling QueryA1.q5...
+Expected selections:
+	Class: Person
+	Attributes: Person.name, Person.gender, Person.civstat
+	Association: Marriage (Person)
+	Invariants: Person::inv1, Person::inv3
+Actual selections:
+	Class: Person
+	Attributes: Person.name, Person.gender, Person.civstat
+	Association: Marriage (Person)
+	Invariants: Person::inv1, Person::inv3
+
+Calling QueryA1.q2 + QueryA1.q3...
+Expected selections:
+	Class: Person
+	Attributes: Person.name, Person.gender
+	Association: Marriage (Person)
+	Invariants: Person::inv1, Person::inv2, Person::inv3
+Actual selections:
+	Class: Person
+	Attributes: Person.name, Person.gender
+	Association: Marriage (Person)
+	Invariants: Person::inv1, Person::inv2, Person::inv3
+SUCCESS
+
+Calling QueryA1.q2 - QueryA1.q3...
+Expected selections:
+	Class: N/A
+	Attribute: Person.name
+	AssociationS: N/A
+	Invariant: Person::inv1
+Actual selections:
+	Class: N/A
+	Attribute: Person.name
+	AssociationS: N/A
+	Invariant: Person::inv1
+SUCCESS
+
+Calling QueryA1.q1 & QueryA1.q2...
+Expected selections:
+	Class: Person
+	Attribute: Person.name
+	Association: N/A
+	Invariant: Person::inv1
+Actual selections:
+	Class: Person
+	Attribute: Person.name
+	Association: N/A
+	Invariant: Person::inv1
+SUCCESS
+
+Calling QueryA1.q3 & QueryA1.q4...
+Expected selections:
+	Classes: Person
+	Attributes: N/A
+	Associations: Marriage (Person)
+	Invariants: N/A
+Actual selections:
+	Classes: Person
+	Attributes: N/A
+	Associations: Marriage (Person)
+	Invariants: N/A
+SUCCESS
+
+Total number of queries: 10
+Success: 10
+Fail: 0
+

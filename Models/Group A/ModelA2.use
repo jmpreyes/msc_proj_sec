@@ -1,0 +1,40 @@
+model DisjointSubclasses
+
+@Rank=1
+class A
+end
+
+@Rank=1
+class B < A
+end
+
+@Rank=1
+class C < A
+end
+
+@Rank=1
+class D < B, C
+end
+
+constraints
+
+context B
+	@Rank=1
+	inv: B.allInstances()->forAll(b|C.allInstances()->forAll(c|b<>c))
+
+-- query module
+
+module QueryA2
+	select A, B, C, D as q0
+	select A, B, C, D with B::* as q1
+	select B with B::* as q2
+	select A, C as q3
+	select B, D as q4
+end
+
+-- Binary expressions to test using terminal
+-- QueryA2.q3 + QueryA2.q4
+-- QueryA2.q0 - QueryA2.q2
+-- QueryA2.q1 & QueryA2.q2
+-- QueryA2.q2 + QueryA2.q3 + QueryA2.q4
+-- QueryA2.q1 - QueryA2.q2 + QueryA2.q3 & QueryA2.q4

@@ -1,0 +1,136 @@
+Query Validation for Model B1
+
+Calling QueryB1.q0...
+Expected selections:
+	Classes: Class0, Class2, Class4
+	Attributes: Class4.Class4BoolAttr0, Class4.Class4BoolAttr1, Class4.Class4IntAttr2, Class4.Class4IntAttr3, Class4.Class4IntAttr4, Class4.Class4EnumAttr5
+	Associations: N/A
+	Invariants: Class0::inv1, Class0::inv2, Class2::inv5, Class2::inv6, Class4::inv9
+Actual selections:
+	Classes: Class0, Class2, Class4
+	Attributes: Class4.Class4BoolAttr0, Class4.Class4BoolAttr1, Class4.Class4IntAttr2, Class4.Class4IntAttr3, Class4.Class4IntAttr4, Class4.Class4EnumAttr5
+	Associations: N/A
+	Invariants: Class0::inv1, Class0::inv2, Class2::inv5, Class2::inv6, Class4::inv9
+SUCCESS
+
+Calling QueryB1.q1...
+Expected selections:
+	Class: Class11
+	Attributes: Class11.Class11BoolAttr0, Class11.Class11BoolAttr1, Class11.Class11IntAttr2, Class11.Class11IntAttr3, Class11.Class11IntAttr4, Class11.Class11EnumAttr6, Class11.Class11EnumAttr5
+	Associations: N/A
+	Invariants: Class11::inv23, Class11::inv25
+Actual selections:
+	Class: Class11
+	Attributes: Class11.Class11BoolAttr0, Class11.Class11BoolAttr1, Class11.Class11IntAttr2, Class11.Class11IntAttr3, Class11.Class11IntAttr4, Class11.Class11EnumAttr6, Class11.Class11EnumAttr5
+	Associations: N/A
+	Invariants: Class11::inv23, Class11::inv25
+SUCCESS
+
+Calling QueryB1.q2...
+Expected selections:
+	Classes: Class12
+	Attributes: N/A
+	Associations: N/A
+	Invariants: Class12::inv26, Class12::inv27
+Actual selections:
+	Classes: Class12
+	Attributes: N/A
+	Associations: N/A
+	Invariants: Class12::inv26, Class12::inv27
+SUCCESS
+
+Calling QueryB1.q3...
+Expected selections:
+	Classes: Class0, Class2
+	Attributes: Class0.Class0BoolAttr0, Class0.Class0BoolAttr1, Class0.Class0BoolAttr2, Class0.Class0IntAttr3, Class0.Class0IntAttr4, Class0.Class0EnumAttr5
+	Association: Class0_Class2 (Class0, Class2)
+	Invariant: Class0::inv1
+Actual selections:
+	Classes: Class0, Class2
+	Attributes: Class1.Class1BoolAttr0, Class1.Class1BoolAttr1, Class1.Class1BoolAttr2, Class1.Class1IntAttr3, Class1.Class1IntAttr4, Class1.Class1EnumAttr5, Class4.Class4BoolAttr0, Class4.Class4BoolAttr1, Class4.Class4IntAttr2, Class4.Class4IntAttr3, Class4.Class4IntAttr4, Class4.Class4EnumAttr5, Class6.Class6BoolAttr0, Class6.Class6BoolAttr1, Class6.Class6IntAttr2, Class6.Class6IntAttr3, Class6.Class6IntAttr4, Class6.Class6EnumAttr5, Class7.Class7BoolAttr0, Class7.Class7BoolAttr1, Class7.Class7IntAttr2, Class7.Class7IntAttr3, Class7.Class7IntAttr4, Class7.Class7EnumAttr5, Class11.Class11BoolAttr0, Class11.Class11BoolAttr1, Class11.Class11IntAttr2, Class11.Class11IntAttr3, Class11.Class11IntAttr4, Class11.Class11EnumAttr6, Class11.Class11EnumAttr5
+	Association: Class0_Class2 (Class0, Class2)
+	Invariant: Class0::inv1
+FAIL -- Attributes of Class1, Class4, Class6, Class7, Class11 are selected (presumably by inheritance)
+
+Calling QueryB1.q4...
+Expected selections:
+	Classes: Class2, Class5, Class9
+	Attributes: N/A
+	Associations: Class2_Class5 (Class2, Class5), Class5_Class9 (Class5, Class9)
+	Invariants: Class2::inv6, Class5::inv10
+Actual selections:
+	Classes: Class2, Class5, Class9
+	Attributes: N/A
+	Associations: Class2_Class5 (Class2, Class5), Class5_Class9 (Class5, Class9)
+	Invariants: Class2::inv6, Class5::inv10
+SUCCESS
+
+Calling QueryB1.q1 + QueryB1.q2...
+Expected selections:
+	Classes: Class11, Class12
+	Attributes: Class11.Class11BoolAttr0, Class11.Class11BoolAttr1, Class11.Class11IntAttr2, Class11.Class11IntAttr3, Class11.Class11IntAttr4, Class11.Class11EnumAttr6, Class11.Class11EnumAttr5
+	Associations: N/A
+	Invariants: Class11::inv23, Class11::inv25, Class12::inv16, Class12::inv27
+Actual selections:
+	Classes: Class11, Class12
+	Attributes: Class4.Class4BoolAttr0, Class4.Class4BoolAttr1, Class4.Class4IntAttr2, Class4.Class4IntAttr3, Class4.Class4IntAttr4, Class4.Class4EnumAttr5, Class11.Class11BoolAttr0, Class11.Class11BoolAttr1, Class11.Class11IntAttr2, Class11.Class11IntAttr3, Class11.Class11IntAttr4, Class11.Class11EnumAttr6, Class11.Class11EnumAttr5
+	Associations: N/A
+	Invariants: Class11::inv23, Class11::inv25, Class12::inv16, Class12::inv27
+FAIL -- Class4 attributes are selected (inheritance)
+
+Calling QueryB1.q1 - QueryB1.q0...
+Expected selections:
+	Class: Class11
+	Attributes: Class11.Class11BoolAttr0, Class11.Class11BoolAttr1, Class11.Class11IntAttr2, Class11.Class11IntAttr3, Class11.Class11IntAttr4, Class11.Class11EnumAttr6, Class11.Class11EnumAttr5
+	Associations: N/A
+	Invariants: Class11::inv23, Class11::inv25
+Actual selections:
+	Class: Class11
+	Attributes: Class11.Class11BoolAttr0, Class11.Class11BoolAttr1, Class11.Class11IntAttr2, Class11.Class11IntAttr3, Class11.Class11IntAttr4, Class11.Class11EnumAttr6, Class11.Class11EnumAttr5
+	Associations: N/A
+	Invariants: Class11::inv23, Class11::inv25
+SUCCESS
+
+Calling QueryB1.q1 & QueryB1.q3...
+Expected selections:
+	Classes: N/A
+	Attributes: N/A
+	Associations: N/A
+	Invariants: N/A
+Actual selections:
+	Classes: N/A
+	Attributes: Class4.Class4BoolAttr0, Class4.Class4BoolAttr1, Class4.Class4IntAttr2, Class4.Class4IntAttr3, Class4.Class4IntAttr4, Class4.Class4EnumAttr5, Class11.Class11BoolAttr0, Class11.Class11BoolAttr1, Class11.Class11IntAttr2, Class11.Class11IntAttr3, Class11.Class11IntAttr4, Class11.Class11EnumAttr6, Class11.Class11EnumAttr5
+	Associations: N/A
+	Invariants: N/A
+FAIL -- Class4 attributes are selected (inheritance)
+
+Calling QueryB1.q0 & QueryB1.q4 + QueryB1.q2...
+Expected selections:
+	Classes: Class2, Class12
+	Attributes: N/A
+	Associations: N/A
+	Invariants: Class2::inv6, Class12::inv26, Class12::inv27
+Actual selections:
+	Classes: Class2, Class12
+	Attributes: N/A
+	Associations: N/A
+	Invariants: Class2::inv6, Class12::inv26, Class12::inv27
+SUCCESS
+
+Calling QueryAll.q0 + QueryAtts.q2 + QueryAssocs.q9 & QueryB1.q3...
+Expected selections:
+	Classes: Class0, Class2
+	Attributes: Class4.Class4BoolAttr0, Class4.Class4BoolAttr1, Class4.Class4IntAttr2, Class4.Class4IntAttr3, Class4.Class4IntAttr4, Class4.Class4EnumAttr5, Class11.Class11BoolAttr0, Class11.Class11BoolAttr1, Class11.Class11IntAttr2, Class11.Class11IntAttr3, Class11.Class11IntAttr4, Class11.Class11EnumAttr6, Class11.Class11EnumAttr5
+	Associations: N/A
+	Invariants: N/A
+Actual selections:
+	Classes: Class0, Class2
+	Attributes: Class4.Class4BoolAttr0, Class4.Class4BoolAttr1, Class4.Class4IntAttr2, Class4.Class4IntAttr3, Class4.Class4IntAttr4, Class4.Class4EnumAttr5, Class11.Class11BoolAttr0, Class11.Class11BoolAttr1, Class11.Class11IntAttr2, Class11.Class11IntAttr3, Class11.Class11IntAttr4, Class11.Class11EnumAttr6, Class11.Class11EnumAttr5
+	Associations: N/A
+	Invariants: N/A
+SUCCESS
+
+Total number of queries: 10
+Success: 7
+Fail: 3
+

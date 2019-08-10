@@ -1,0 +1,136 @@
+Query Validation for Model A3
+
+Calling QueryA3.q0...
+Expected selections:
+	Class: Student, Module
+	Attributes: Student.id, Student.year
+	Association: study (Student, Module)
+	Invariants: Student::inv2, Student::inv3, Student::inv4, Student::inv5, Student::inv6, Student::inv7
+Actual selections:
+	Class: Student, Module
+	Attributes: Student.id, Student.year, Person.age, Person.mature, Person.name
+	Association: study (Student, Module)
+	Invariants: Student::inv2, Student::inv3, Student::inv4, Student::inv5, Student::inv6, Student::inv7
+FAIL -- Attributes of class Person are selected (possibly because of inheritance?)
+
+Calling QueryA3.q1...
+Expected selections:
+	Class: Module
+	Attributes: Module.code, Module.credit, Module.year, Module.description
+	Associations: N/A
+	Invariant: Module::inv8
+Actual selections:
+	Class: Module
+	Attributes: Module.code, Module.credit, Module.year, Module.description
+	Associations: N/A
+	Invariant: Module::inv8
+SUCCESS
+
+Calling QueryA3.q2...
+Expected selections:
+	Class: Person
+	Attributes: Person.age, Person.mature, Person.name
+	Associations: N/A
+	Invariants: Student::inv2, Student::inv3, Student::inv4, Student::inv6
+Actual selections:
+	Class: Person
+	Attributes: Person.age, Person.mature, Person.name
+	Associations: N/A
+	Invariants: Student::inv2, Student::inv3, Student::inv4, Student::inv6
+SUCCESS
+
+Calling QueryA3.q3...
+Expected selections:
+	Classes: Person, Student, Department
+	Attributes: Student.id, Student.year, Person.age, Person.mature, Person.name
+	Associations: N/A
+	Invariants: N/A
+Actual selections:
+	Classes: Person, Student, Department
+	Attributes: Student.id, Student.year, Person.age, Person.mature, Person.name
+	Associations: N/A
+	Invariants: N/A
+SUCCESS
+
+Calling QueryA3.q4...
+Expected selections:
+	Class: Student, Module
+	Attributes: Student.id, Module.code
+	Associations: study (Student, Module)
+	Invariants: Student::inv2, Student::inv3, Student::inv4, Student::inv5, Student::inv7, Module::inv8
+Actual selections:
+	Class: Student, Module
+	Attributes: Student.id, Module.code
+	Associations: study (Student, Module)
+	Invariants: Student::inv2, Student::inv3, Student::inv4, Student::inv5, Student::inv7, Module::inv8
+SUCCESS
+
+Calling QueryA3.q5...
+Expected selections:
+	Class: Department, Student
+	Attributes: N/A
+	Association: teach (Department, Student)
+	Invariants: Student::inv4, Student::inv5, Student::inv6, Student::inv7
+Actual selections:
+	Class: Department, Student
+	Attributes: N/A
+	Association: teach (Department, Student)
+	Invariants: Student::inv4, Student::inv5, Student::inv6, Student::inv7
+SUCCESS
+
+Calling QueryA3.q6...
+Expected selections:
+	Classes: University, Department, Student, Module
+	Attributes: N/A
+	Associations: manage (University, Department), study (Student, Module)
+	Invariants: N/A
+Actual selections:
+	Classes: University, Department, Student, Module
+	Attributes: N/A
+	Associations: manage (University, Department), study (Student, Module)
+	Invariants: N/A
+SUCCESS
+
+Calling QueryA3.q2 - QueryA3.q4...
+Expected selections:
+	Class: Person
+	Attributes: Person.age, Person.mature, Person.name
+	Associations: N/A
+	Invariant: Student::inv6
+Actual selections:
+	Class: Person
+	Attributes: Person.age, Person.mature, Person.name
+	Associations: N/A
+	Invariant: Student::inv6
+SUCCESS
+
+Calling QueryA3.q3 & QueryA3.q5...
+Expected selections:
+	Classes: Department, Student
+	Attributes: N/A
+	Associations: N/A
+	Invariants: N/A
+Actual selections:
+	Classes: Department, Student
+	Attributes: N/A
+	Associations: N/A
+	Invariants: N/A
+SUCCESS
+
+Calling QueryA3.q2 - QueryA3.q3 + QueryA3.q0...
+Expected selections:
+	Classes: Student, Module
+	Attributes: Student.id, Student.year
+	Associations: study (Student, Module)
+	Invariants: Student::inv2, Student::inv3, Student::inv4, Student::inv5, Student::inv6, Student::inv7
+Actual selections:
+	Classes: Student, Module
+	Attributes: Student.id, Student.year, Person.age, Person.mature, Person.name
+	Associations: study (Student, Module)
+	Invariants: Student::inv2, Student::inv3, Student::inv4, Student::inv5, Student::inv6, Student::inv7
+FAIL -- Attributes of class Person are selected (assuming by inheritance)
+
+Total number of queries: 10
+Success: 8
+Fail: 2
+

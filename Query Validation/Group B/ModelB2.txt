@@ -1,0 +1,136 @@
+Query validation for Model B2
+
+Calling QueryB2.q0...
+Expected selections:
+	Class: Class0
+	Attributes: Class0.Class0BoolAttr0, Class0.Class0BoolAttr1, Class0.Class0BoolAttr2, Class0.Class0IntAttr3, Class0.Class0IntAttr4, Class0.Class0EnumAttr5
+	Associations: N/A
+	Invariants: Class0::inv1
+Actual selections:
+	Classes: Class0, Class5, Class11, Class13
+	Attributes: Class0.Class0BoolAttr0, Class0.Class0BoolAttr1, Class0.Class0BoolAttr2, Class0.Class0IntAttr3, Class0.Class0IntAttr4, Class0.Class0EnumAttr5, Class5.Class5BoolAttr0, Class5.Class5BoolAttr1, Class5.Class5IntAttr2, Class5.Class5IntAttr3, Class5.Class5EnumAttr4, Class11.Class11BoolAttr0, Class11.Class11BoolAttr1, Class11.Class11IntAttr2, Class11.Class11IntAttr3, Class11.Class11IntAttr4, Class13.Class13BoolAttr0, Class13.Class13BoolAttr1, Class13.Class13IntAttr2, Class13.Class13IntAttr3, Class13.Class13IntAttr4
+	Associations: N/A
+	Invariants: Class0::inv1
+FAIL -- Attributes of Class5, Class11, and Class13 are also selected (inheritance)
+
+Calling QueryB2.q1...
+Expected selections:
+	Classes: Class4, Class5
+	Attributes: Class5.Class5BoolAttr0, Class5.Class5BoolAttr1, Class5.Class5IntAttr2, Class5.Class5IntAttr3, Class5.Class5EnumAttr4
+	Association: Class5_Class4 (Class5, Class4)
+	Invariants: Class5::inv12, Class5::inv13
+Actual selections:
+	Classes: Class4, Class5
+	Attributes: Class5.Class5BoolAttr0, Class5.Class5BoolAttr1, Class5.Class5IntAttr2, Class5.Class5IntAttr3, Class5.Class5EnumAttr4, Class11.Class11BoolAttr0, Class11.Class11BoolAttr1, Class11.Class11IntAttr2, Class11.Class11IntAttr3, Class11.Class11IntAttr4, Class13.Class13BoolAttr0, Class13.Class13BoolAttr1, Class13.Class13IntAttr2, Class13.Class13IntAttr3, Class13.Class13IntAttr4
+	Association: Class5_Class4 (Class5, Class4)
+	Invariants: Class5::inv12, Class5::inv13
+FAIL -- Attributes of Class11 and Class13 are also selected (inheritance)
+
+Calling QueryB2.q2...
+Expected selections:
+	Classes: Class19, Class21, Class23
+	Attributes: Class19.Class19BoolAttr0, Class19.Class19BoolAttr1, Class19.Class19IntAttr2, Class19.Class19EnumAttr4, Class19.Class19EnumAttr3, Class21.Class21BoolAttr0, Class21.Class21IntAttr1, Class21.Class21EnumAttr2, Class23.Class23BoolAttr0, Class23.Class23IntAttr1, Class23.Class23EnumAttr2
+	Associations: N/A
+	Invariants: N/A
+Actual selections:
+	Classes: Class19, Class21, Class23
+	Attributes: Class19.Class19BoolAttr0, Class19.Class19BoolAttr1, Class19.Class19IntAttr2, Class19.Class19EnumAttr4, Class19.Class19EnumAttr3, Class21.Class21BoolAttr0, Class21.Class21IntAttr1, Class21.Class21EnumAttr2, Class23.Class23BoolAttr0, Class23.Class23IntAttr1, Class23.Class23EnumAttr2
+	Associations: N/A
+	Invariants: N/A
+SUCCESS
+
+Calling QueryB2.q3...
+Expected selections:
+	Classes: Class1, Class3, Class16
+	Attributes: Class1.Class1BoolAttr0, Class1.Class1BoolAttr1, Class1.Class1BoolAttr2, Class1.Class1IntAttr3, Class1.Class1IntAttr4, Class1.Class1EnumAttr5, Class3.Class3IntAttr3, Class3.Class3IntAttr4
+	Associations: Class1_Class16 (Class1, Class16), Class3_Class3 (Class3)
+	Invariants: Class1::inv3, Class3::inv7, Class3::inv8
+Actual selections:
+	Classes: Class1, Class3, Class16
+	Attributes: Class1.Class1BoolAttr0, Class1.Class1BoolAttr1, Class1.Class1BoolAttr2, Class1.Class1IntAttr3, Class1.Class1IntAttr4, Class1.Class1EnumAttr5, Class3.Class3IntAttr3, Class3.Class3IntAttr4
+	Associations: Class1_Class16 (Class1, Class16), Class3_Class3 (Class3)
+	Invariants: Class1::inv3, Class3::inv7, Class3::inv8
+SUCCESS
+
+Calling QueryB2.q4...
+Expected selections:
+	Classes: Class1, Class3, Class5, Class7, Class9, Class11, Class13, Class15, Class17, Class19, Class21, Class23
+	Attributes: N/A
+	Associations: N/A
+	Invariants: Class1::inv3, Class1::inv4, Class3::inv7, Class3::inv8, Class5::inv12, Class5::inv13, Class5::inv14, Class7::inv18, Class7::inv19, Class9::inv22, Class9::inv23, Class11::inv26, Class11::inv27, Class13::inv30, Class13::inv31, Class13::inv32, Class15::inv35, Class15::inv36, Class17::inv38, Class19::inv40, Class21::inv43, Class23::inv45
+Actual selections:
+	Classes: Class1, Class3, Class5, Class7, Class9, Class11, Class13, Class15, Class17, Class19, Class21, Class23
+	Attributes: N/A
+	Associations: N/A
+	Invariants: Class1::inv3, Class1::inv4, Class3::inv7, Class3::inv8, Class5::inv12, Class5::inv13, Class5::inv14, Class7::inv18, Class7::inv19, Class9::inv22, Class9::inv23, Class11::inv26, Class11::inv27, Class13::inv30, Class13::inv31, Class13::inv32, Class15::inv35, Class15::inv36, Class17::inv38, Class19::inv40, Class21::inv43, Class23::inv45
+SUCCESS
+
+Calling QueryB2.q5...
+Expected selections:
+	Classes: Class0, Class2, Class4, Class6, Class8, Class10, Class12, Class14, Class16, Class18, Class20, Class22
+	Attributes: N/A
+	Associations: N/A
+	Invariants: Class0::inv1, Class0::inv2, Class2::inv5, Class2::inv6, Class4::inv9, Class4::inv10, Class4::inv11, Class6::inv15, Class6::inv16, Class6::inv17, Class8::inv20, Class8::inv21, Class10::inv24, Class10::inv25, Class12::inv28, Class12::inv29, Class14::inv33, Class14::inv34, Class16::inv37, Class18::inv39, Class20::inv41, Class20::inv42, Class22::inv44
+Actual selections:
+	Classes: Class0, Class2, Class4, Class6, Class8, Class10, Class12, Class14, Class16, Class18, Class20, Class22
+	Attributes: N/A
+	Associations: N/A
+	Invariants: Class0::inv1, Class0::inv2, Class2::inv5, Class2::inv6, Class4::inv9, Class4::inv10, Class4::inv11, Class6::inv15, Class6::inv16, Class6::inv17, Class8::inv20, Class8::inv21, Class10::inv24, Class10::inv25, Class12::inv28, Class12::inv29, Class14::inv33, Class14::inv34, Class16::inv37, Class18::inv39, Class20::inv41, Class20::inv42, Class22::inv44
+SUCCESS
+
+Calling QueryB2.q4 + QueryB2.q5...
+Expected selections:
+	Classes: Class0, Class1, Class2, Class3, Class4, Class5, Class6, Class7, Class8, Class9, Class10, Class11, Class12, Class13, Class14, Class15, Class16, Class17, Class18, Class19, Class20, Class21, Class22, Class23
+	Attributes: N/A
+	Associations: N/A
+	Invariants: Class0::inv1, Class0::inv2, Class1::inv3, Class1::inv4, Class2::inv5, Class2::inv6, Class3::inv7, Class3::inv8, Class4::inv9, Class4::inv10, Class4::inv11, Class5::inv12, Class5::inv13, Class5::inv14, Class6::inv15, Class6::inv16, Class6::inv17, Class7::inv18, Class7::inv19, Class8::inv20, Class8::inv21, Class9::inv22, Class9::inv23, Class10::inv24, Class10::inv25, Class11::inv26, Class11::inv27, Class12::inv28, Class12::inv29, Class13::inv30, Class13::inv31, Class13::inv32, Class14::inv33, Class14::inv34, Class15::inv35, Class15::inv36, Class16::inv37, Class17::inv38, Class18::inv39, Class19::inv40, Class20::inv41, Class20::inv42, Class21::inv43, Class22::inv44, Class23::inv45
+Actual selections:
+	Classes: Class0, Class1, Class2, Class3, Class4, Class5, Class6, Class7, Class8, Class9, Class10, Class11, Class12, Class13, Class14, Class15, Class16, Class17, Class18, Class19, Class20, Class21, Class22, Class23
+	Attributes: N/A
+	Associations: N/A
+	Invariants: Class0::inv1, Class0::inv2, Class1::inv3, Class1::inv4, Class2::inv5, Class2::inv6, Class3::inv7, Class3::inv8, Class4::inv9, Class4::inv10, Class4::inv11, Class5::inv12, Class5::inv13, Class5::inv14, Class6::inv15, Class6::inv16, Class6::inv17, Class7::inv18, Class7::inv19, Class8::inv20, Class8::inv21, Class9::inv22, Class9::inv23, Class10::inv24, Class10::inv25, Class11::inv26, Class11::inv27, Class12::inv28, Class12::inv29, Class13::inv30, Class13::inv31, Class13::inv32, Class14::inv33, Class14::inv34, Class15::inv35, Class15::inv36, Class16::inv37, Class17::inv38, Class18::inv39, Class19::inv40, Class20::inv41, Class20::inv42, Class21::inv43, Class22::inv44, Class23::inv45
+SUCCESS
+
+Calling QueryB2.q4 & QueryB2.q5...
+Expected selections:
+	Classes: N/A
+	Attributes: N/A
+	Associations: N/A
+	Invariants: N/A
+Actual selections:
+	Classes: N/A
+	Attributes: N/A
+	Associations: N/A
+	Invariants: N/A
+SUCCESS
+
+Calling QueryB2.q0 - QueryAttrs.q0...
+Expected selections:
+	Classes: N/A
+	Attributes: N/A
+	Associations: N/A
+	Invariant: Class0::inv1
+Actual selections:
+	Classes: N/A
+	Attributes: N/A
+	Associations: N/A
+	Invariant: Class0::inv1
+SUCCESS -- But why did this ignore Class5, Class11, and Class13 despite its selection in q0? 
+
+Calling QueryAssocs.* & QueryB2.q2...
+Expected selections:
+	Classes: N/A
+	Attributes: N/A
+	Associations: N/A
+	Invariants: N/A
+Actual selections:
+	Classes: Class1, Class16
+	Attributes: N/A
+	Associations: Class1_Class16 (Class1, Class16)
+	Invariants: N/A
+FAIL -- QueryAssocs.* only invokes the first query of that module q0 instead of caliing all queries in that module
+
+Total number of queries: 10
+Success: 7
+Fail: 3
+

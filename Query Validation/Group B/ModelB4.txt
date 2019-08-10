@@ -1,0 +1,135 @@
+Query Validation for Model B4
+
+Calling QueryB4.q0...
+Expected selections:
+	Class: Class3, Class40
+	Attributes: Class3.Class3BoolAttr0, Class3.Class3BoolAttr1, Class3.Class3BoolAttr2, Class3.Class3IntAttr3, Class3.Class3IntAttr4, Class3.Class3EnumAttr5
+	Association: Class3_Class40 (Class3, Class40)
+	Invariants: Class3::inv8, Class3::inv9
+Actual selections:
+	Class: Class3, Class40
+	Attributes: Class3.Class3BoolAttr0, Class3.Class3BoolAttr1, Class3.Class3BoolAttr2, Class3.Class3IntAttr3, Class3.Class3IntAttr4, Class3.Class3EnumAttr5
+	Association: Class3_Class40 (Class3, Class40)
+	Invariants: Class3::inv8, Class3::inv9
+SUCCESS
+
+Calling QueryB4.q1...
+Expected selections:
+	Classes: Class21, Class22, Class26, Class30
+	Attributes: N/A
+	Associations: Class21_Class30 (Class21, Class30), Class22_Class26 (Class22, Class26)
+	Invariants: Class21::inv40, Class22::inv41
+Actual selections:
+	Classes: Class21, Class22, Class26, Class30
+	Attributes: N/A
+	Associations: Class21_Class30 (Class21, Class30), Class22_Class26 (Class22, Class26)
+	Invariants: Class21::inv40, Class22::inv41
+SUCCESS
+
+Calling QueryB4.q2...
+Expected selections:
+	Classes: Class30, Class31, Class32
+	Attributes: N/A
+	Associations: N/A
+	Invariants: Class30::inv49, Class30::inv51, Class31::inv52, Class31::inv54, Class32::inv55, Class32::inv56
+Actual selections:
+	Classes: Class30, Class31, Class32
+	Attributes: N/A
+	Associations: N/A
+	Invariants: Class30::inv49, Class30::inv51, Class31::inv52, Class31::inv54, Class32::inv55, Class32::inv56
+SUCCESS
+
+Calling QueryB4.q3...
+Expected selections:
+	Class: Class40
+	Attributes: Class40.Class40BoolAttr0, Class40.Class40BoolAttr1, Class40.Class40IntAttr2, Class40.Class40EnumAttr3, Class40.Class40EnumAttr4
+	Associations: N/A
+	Invariants: Class40::inv79, Class40::inv82
+Actual selections:
+	Class: Class40
+	Attributes: Class2.Class2BoolAttr0, Class2.Class2BoolAttr1, Class2.Class2BoolAttr2, Class2.Class2IntAttr3, Class2.Class2IntAttr4, Class2.Class2EnumAttr5, Class20.Class20BoolAttr0, Class20.Class20BoolAttr1, Class20.Class20IntAttr2, Class20.Class20EnumAttr3, Class21.Class21BoolAttr0, Class21.Class21BoolAttr1, Class21.Class21IntAttr2, Class21.Class21EnumAttr3, Class40.Class40BoolAttr0, Class40.Class40BoolAttr1, Class40.Class40IntAttr2, Class40.Class40EnumAttr3, Class40.Class40EnumAttr4
+	Associations: N/A
+	Invariants: Class40::inv79, Class40::inv82
+FAIL -- Attributes of Class2, Class20, and Class21 are selected (inheritance)
+
+Calling QueryB4.q4...
+Expected selections:
+	Classes: Class7, Class11
+	Attributes: Class7.Class7BoolAttr0, Class7.Class7BoolAttr1, Class7.Class7BoolAttr2, Class7.Class7IntAttr3, Class7.Class7IntAttr4, Class7.Class7EnumAttr5, Class11.Class11BoolAttr0, Class11.Class11BoolAttr1, Class11.Class11IntAttr2, Class11.Class11IntAttr3, Class11.Class11EnumAttr4
+	Associations: N/A
+	Invariants: Class7::inv16, Class11::inv24
+Actual selections:
+	Classes: Class7, Class11
+	Attributes: Class7.Class7BoolAttr0, Class7.Class7BoolAttr1, Class7.Class7BoolAttr2, Class7.Class7IntAttr3, Class7.Class7IntAttr4, Class7.Class7EnumAttr5, Class11.Class11BoolAttr0, Class11.Class11BoolAttr1, Class11.Class11IntAttr2, Class11.Class11IntAttr3, Class11.Class11EnumAttr4
+	Associations: N/A
+	Invariants: Class7::inv16, Class11::inv24
+SUCCESS
+
+Calling QueryAttrs.q3 + QueryAssocs.q13 - QueryB4.q1...
+Expected selections:
+	Class: Class3
+	Attributes: Class3.Class3BoolAttr0, Class3.Class3BoolAttr1, Class3.Class3BoolAttr2, Class3.Class3IntAttr3, Class3.Class3IntAttr4, Class3.Class3EnumAttr5
+	Associations: N/A
+	Invariants: N/A
+Actual selections:
+	Class: Class3
+	Attributes: Class3.Class3BoolAttr0, Class3.Class3BoolAttr1, Class3.Class3BoolAttr2, Class3.Class3IntAttr3, Class3.Class3IntAttr4, Class3.Class3EnumAttr5
+	Associations: N/A
+	Invariants: N/A
+SUCCESS
+
+Calling QueryB4.q1 & QueryB4.q2...
+Expected selections:
+	Class: Class30
+	Attributes: N/A
+	Associations: N/A
+	Invariants: N/A
+Actual selections:
+	Class: Class30
+	Attributes: N/A
+	Associations: N/A
+	Invariants: N/A
+SUCCESS
+
+Calling QueryB4.q4 - QueryInvs.q7 + QueryInvs.q11...
+Expected selections:
+	Class: Class11
+	Attributes: Class7.Class7BoolAttr0, Class7.Class7BoolAttr1, Class7.Class7BoolAttr2, Class7.Class7IntAttr3, Class7.Class7IntAttr4, Class7.Class7EnumAttr5, Class11.Class11BoolAttr0, Class11.Class11BoolAttr1, Class11.Class11IntAttr2, Class11.Class11IntAttr3, Class11.Class11EnumAttr4
+	Associations: N/A
+	Invariants: Class11::inv24, Class11::inv25
+Actual selections:
+	Class: Class11
+	Attributes: Class7.Class7BoolAttr0, Class7.Class7BoolAttr1, Class7.Class7BoolAttr2, Class7.Class7IntAttr3, Class7.Class7IntAttr4, Class7.Class7EnumAttr5, Class11.Class11BoolAttr0, Class11.Class11BoolAttr1, Class11.Class11IntAttr2, Class11.Class11IntAttr3, Class11.Class11EnumAttr4
+	Associations: N/A
+	Invariants: Class11::inv24, Class11::inv25
+SUCCESS
+
+Calling QueryInvs.q30 + QueryInvs.q31 & QueryB4.q2...
+Expected selections:
+	Classes: Class30, Class31
+	Attributes: N/A
+	Associations: N/A
+	Invariants: Class30::inv49, Class30::inv50, Class31::inv51, Class31::inv52
+Actual selections:
+	Classes: Class30, Class31
+	Attributes: N/A
+	Associations: N/A
+	Invariants: Class30::inv49, Class30::inv50, Class31::inv51, Class31::inv52
+SUCCESS
+
+Calling QueryB4.q0 - QueryAssocs.q2 & QueryInvs.q3...
+Expected selections:
+	Classes: N/A
+	Attributes: N/A
+	Associations: N/A
+	Invariants: Class3::inv8, Class3::inv9
+Actual selections:
+	Classes: N/A
+	Attributes: N/A
+	Associations: N/A
+	Invariants: Class3::inv8, Class3::inv9
+SUCCESS
+
+Total number of queries: 10
+Success: 9
+Fail: 1

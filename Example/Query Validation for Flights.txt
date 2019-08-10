@@ -1,0 +1,136 @@
+Query Validation for Flights.use
+
+Calling QueryTest.q0...
+Expected selections:
+	Class: Person
+	Attributes: Person.age, Person.name, Person.seat
+	Associations: N/A
+	Invariants: Person::inv1, Person::inv2
+Actual selections:
+	Class: Person
+	Attributes: Person.age, Person.name, Person.seat
+	Associations: N/A
+	Invariants: Person::inv1, Person::inv2
+SUCCESS
+
+Calling QueryTest.q1...
+Expected selections:
+	Class: Flight
+	Attributes: Flight.flightNo, Flight.departTime, Flight.destination
+	Associations: N/A
+	Invariants: Flight::inv3, Flight::inv4
+Actual selections:
+	Class: Flight
+	Attributes: Flight.flightNo, Flight.departTime, Flight.destination
+	Associations: N/A
+	Invariants: Flight::inv3, Flight::inv4
+SUCCESS
+
+Calling QueryTest.q2...
+Expected selections:
+	Class: Airplane
+	Attributes: Airplane.totalSeats, Airplane.aircraftType
+	Associations: N/A
+	Invariant: Airplane::inv5
+Actual selections:
+ 	Class: Airplane
+	Attributes: Airplane.totalSeats, Airplane.aircraftType
+	Associations: N/A
+	Invariant: Airplane::inv5
+SUCCESS
+
+Calling QueryTest.q3...
+Expected selections:
+	Class: Person
+	Attributes: Person.age, Person.name, Person.seat
+	Association: HasFlight (Person, Flight)
+	Invariant: Person::inv2
+Actual selections:
+	Class: Person
+	Attributes: Person.age, Person.name, Person.seat
+	Association: HasFlight (Person, Flight)
+	Invariant: Person::inv2
+SUCCESS
+
+Calling QueryTest.q4...
+Expected selections:
+	Classes: Person, Flight, Airplane
+	Attributes: Person.name, Flight.flightNo, Flight.departTime, Flight.destination, Airplane.totalSeats, Airplane.aircraftType
+	Associations: HasFlight (Person, Flight), HasAirplane (Flight, Airplane), IsPartOf (Airplane, Flight)
+	Invariants: Person::inv1, Person::inv2, Flight::inv4
+Actual selections:
+	Classes: Person, Flight, Airplane
+	Attributes: Person.name, Flight.flightNo, Flight.departTime, Flight.destination, Airplane.totalSeats, Airplane.aircraftType
+	Associations: HasFlight (Person, Flight), HasAirplane (Flight, Airplane), IsPartOf (Airplane, Flight)
+	Invariants: Person::inv1, Person::inv2, Flight::inv4
+SUCCESS
+
+Calling QueryTest.q0 + QueryTest.q1 + QueryTest.q2...
+Expected selections:
+	Classes: Person, Flight, Airplane
+	Attributes: Person.age, Person.name, Person.seat, Flight.flightNo, Flight.departTime, Flight.destination, Airplane.totalSeats, Airplane.aircraftType
+	Associations: N/A
+	Invariants: Person::inv1, Person::inv2, Flight::inv3, Flight::inv4, Airplane::inv5
+Actual selections:
+	Classes: Person, Flight, Airplane
+	Attributes: Person.age, Person.name, Person.seat, Flight.flightNo, Flight.departTime, Flight.destination, Airplane.totalSeats, Airplane.aircraftType
+	Associations: N/A
+	Invariants: Person::inv1, Person::inv2, Flight::inv3, Flight::inv4, Airplane::inv5
+SUCCESS
+
+Calling QueryTest.q1 - QueryTest.q2...
+Expected selections:
+	Class: Flight
+	Attributes: Flight.flightNo, Flight.departTime, Flight.destination
+	Associations: N/A
+	Invariants: Flight::inv3, Flight::inv4
+Actual selections:
+	Class: Flight
+	Attributes: Flight.flightNo, Flight.departTime, Flight.destination
+	Associations: N/A
+	Invariants: Flight::inv3, Flight::inv4
+SUCCESS
+
+Calling QueryTest.q2 - QueryTest.q1...
+Expected selections:
+	Class: Airplane
+	Attributes: Airplane.totalSeats, Airplane.aircraftType
+	Associations: N/A
+	Invariant: Airplane::inv5
+Actual selections:
+ 	Class: Airplane
+	Attributes: Airplane.totalSeats, Airplane.aircraftType
+	Associations: N/A
+	Invariant: Airplane::inv5
+SUCCESS
+
+Calling QueryTest.q0 & QueryTest.q4...
+Expected selections:
+	Class: Person
+	Attributes: Person.name
+	Associations: N/A
+	Invariants: Person::inv1, Person::inv2
+Actual selections:
+	Class: Person
+	Attributes: Person.name
+	Associations: N/A
+	Invariants: Person::inv1, Person::inv2
+SUCCESS
+
+Calling QueryTest.q0 + QueryTest.q1 - QueryTest.q2 - QueryTest.q3 & QueryTest.q4...
+Expected selections:
+	Class: Flight
+	Attributes: Flight.flightNo, Flight.departTime, Flight.destination
+	Associations: N/A
+	Invariants: Person::inv1, Flight::inv4
+Actual selections:
+	Class: N/A
+	Attributes: Flight.flightNo, Flight.departTime, Flight.destination
+	Associations: N/A
+	Invariants: Person::inv1, Flight::inv4
+FAIL -- Class Flight should be selected after evaluation of ((q0 + q1) - q2) and applying set intersection with q4
+
+Total number of queries: 10
+Success: 9
+Fail: 1
+

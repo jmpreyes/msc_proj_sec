@@ -1,0 +1,81 @@
+model UNIVERSITY
+
+class University
+end
+
+class Department
+end
+
+class Module
+attributes
+	code:		Integer
+	credit:		Integer
+	year: 		Integer
+	description:	Integer
+end
+
+class Person
+attributes
+	age:		Integer
+	mature:		Boolean
+	name:		String
+end
+
+class Student < Person
+attributes
+	id:		Integer
+	year:		Integer
+end
+
+@Rank = automatic
+association study between
+	Student [1..1] role student
+	Module [0..*] role modules
+end
+
+association teach between
+	Department [1..1] role department
+	Student [1..*] role student
+end
+
+association manage between
+	University [1..1] role department
+	Department [1..*] role student
+end
+
+constraints
+
+@Person{Rank = 1}
+context Person
+	inv: Person.allInstances()->forAll(p|p.age>0 and p.age<18)
+
+@Student{Rank = 1}
+context Student
+	inv: self.age > 18
+	inv: self.year>=1 and self.year<=6
+	inv: Student.allInstances()->forAll(s1,s2:Student|s1<>s2 implies s1.id <> s2.id)
+	inv: Student.allInstances()->forAll(s1|s1.modules->forAll(m1|s1.year=m1.year))
+	inv: Student.allInstances()->exists(s|s.year=6) and Student.allInstances()->exists(s|s.year<6)
+	inv: Student.allInstances()->forAll(s|s.modules->notEmpty())
+
+@Module{Rank = 1}
+context Module
+	inv: self.year>=1 and self.year<=5
+
+-- query module
+
+module QueryA3
+	select Student.*, Student:*:* with Student::* as q0
+	select Module.* with Module::* as q1
+	select Person.* with Student::* but Student::inv5, Student::inv7 as q2
+	select Person.*, Student.*, Department.* but Student::*, Person::* as q3
+	select Student.id, Module.code, Student:*:Module with Student::*, Module::* but Student::inv6 as q4
+	select Department, Department:*:* with Student::* but Student::inv2, Student::inv3 as q5
+	select *:manage:*, *:study:* as q6
+end
+
+-- Binary expressions to test using terminal
+-- QueryA3.q2 - QueryA3.q4
+-- QueryA3.q3 & QueryA3.q5
+-- QueryA3.q2 - QueryA3.q3 + QueryA3.q0
+-- ** Note: flip binary operands or operators and compare solutions...

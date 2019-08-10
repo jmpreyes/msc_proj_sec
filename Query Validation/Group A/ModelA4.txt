@@ -1,0 +1,136 @@
+Query Validation for Model A4
+
+Calling QueryA4.q0...
+Expected selections:
+	Class: Paper, Researcher
+	Attribute: Researcher.isStudent
+	Associations: Writes (Researcher, Paper), Reviews (Researcher, Paper)
+	Invariants: Researcher::inv1, Researcher::inv2, Researcher::inv3
+Actual selections:
+	Class: Paper, Researcher
+	Attribute: Researcher.isStudent
+	Association: Writes (Researcher, Paper), Reviews (Researcher, Paper)
+	Invariants: Researcher::inv1, Researcher::inv2, Researcher::inv3
+SUCCESS
+
+Calling QueryA4.q1...
+Expected selections:
+	Class: Paper, Researcher
+	Attributes: Paper.wordCount, Paper.studentPaper
+	Associations: N/A
+	Invariants: Paper::inv4, Paper::inv5, Paper::inv6
+Actual selections:
+	Class: Paper, Researcher
+	Attributes: Paper.wordCount, Paper.studentPaper
+	Associations: N/A
+	Invariants: Paper::inv4, Paper::inv5, Paper::inv6
+SUCCESS
+
+Calling QueryA4.q2...
+Expected selections:
+	Class: Researcher
+	Attribute: Researcher.isStudent
+	Associations: N/A
+	Invariants: Researcher::inv1, Researcher::inv2, Researcher::inv3
+Actual selections:
+	Class: Researcher
+	Attribute: Researcher.isStudent
+	Associations: N/A
+	Invariants: Researcher::inv1, Researcher::inv2, Researcher::inv3
+SUCCESS
+
+Calling QueryA4.q3...
+Expected selections:
+	Classes: Paper, Researcher
+	Attributes: Paper.studentPaper, Researcher.isStudent
+	Associations: N/A
+	Invariants: Researcher::inv1, Researcher::inv2, Researcher::inv3, Paper::inv4, Paper::inv5, Paper::inv6
+Actual selections:
+	Classes: Paper, Researcher
+	Attributes: Paper.studentPaper, Researcher.isStudent
+	Associations: N/A
+	Invariants: Researcher::inv1, Researcher::inv2, Researcher::inv3, Paper::inv4, Paper::inv5, Paper::inv6
+SUCCESS
+
+Calling QueryA4.q4...
+Expected selections:
+	Classes: Paper, Researcher
+	Attributes: Paper.wordCount, Paper.studentPaper, Researcher.isStudent
+	Association: Writes (Researcher, Paper)
+	Invariants: Researcher::inv1, Researcher::inv3, Paper::inv4, Paper::inv6
+Actual selections:
+	Classes: Paper, Researcher
+	Attributes: Paper.wordCount, Paper.studentPaper, Researcher.isStudent
+	Association: Writes (Researcher, Paper)
+	Invariants: Researcher::inv1, Researcher::inv3, Paper::inv4, Paper::inv6
+SUCCESS
+
+Calling QueryA4.q0 + QueryA4.q1...
+Expected selections:
+	Classes: Paper, Researcher
+	Attributes: Paper.wordCount, Paper.studentPaper, Researcher.isStudent
+	Associations: Writes (Researcher, Paper), Reviews (Researcher, Paper)
+	Invariants: Researcher::inv1, Researcher::inv2, Researcher::inv3, Paper::inv4, Paper::inv5, Paper::inv6
+Actual selections:
+	Classes: Paper, Researcher
+	Attributes: Paper.wordCount, Paper.studentPaper, Researcher.isStudent
+	Associations: Writes (Researcher, Paper), Reviews (Researcher, Paper)
+	Invariants: Researcher::inv1, Researcher::inv2, Researcher::inv3, Paper::inv4, Paper::inv5, Paper::inv6
+SUCCESS
+
+Calling QueryA4.q0 - QueryA4.q4...
+Expected selections:
+	Classes: Paper, Researcher
+	Attributes: N/A
+	Association: Reviews (Researcher, Paper)
+	Invariants: Researcher::inv2
+Actual selections:
+	Classes: N/A
+	Attributes: N/A
+	Association: Reviews (Researcher, Paper)
+	Invariants: Researcher::inv2
+FAIL -- Despite association, Paper and Researcher classes are not selected (contradiction from other examples?)
+
+Calling QueryA4.q3 & QueryA4.q4...
+Expected selections:
+	Classes: Paper, Researcher
+	Attributes: Paper.studentPaper, Researcher.isStudent
+	Associations: N/A
+	Invariants: Researcher::inv1, Researcher::inv3, Paper::inv4, Paper::inv6
+Actual selections:
+	Classes: Paper, Researcher
+	Attributes: Paper.studentPaper, Researcher.isStudent
+	Associations: N/A
+	Invariants: Researcher::inv1, Researcher::inv3, Paper::inv4, Paper::inv6
+SUCCESS
+
+Calling QueryA4.q2 - QueryA4.q3 - QueryA4.q4...
+Expected selections:
+	Classes: N/A
+	Attributes: N/A
+	Associations: N/A
+	Invariants: N/A
+Actual selections:
+	Classes: N/A
+	Attributes: N/A
+	Associations: N/A
+	Invariants: N/A
+SUCCESS
+
+Calling QueryA4.q0 + QueryA4.q2 & QueryA4.q4...
+Expected selections:
+	Class: Paper, Researcher
+	Attribute: Researcher.isStudent
+	Association: Writes (Researcher, Paper)
+	Invariants: Researcher::inv1, Researcher::inv3
+Actual selections:
+	Class: Paper, Researcher
+	Attribute: Researcher.isStudent
+	Association: Writes (Researcher, Paper)
+	Invariants: Researcher::inv1, Researcher::inv3
+SUCCESS
+	
+Total number of queries: 10
+Success: 9
+Fail: 1
+
