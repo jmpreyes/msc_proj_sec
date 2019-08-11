@@ -66,11 +66,13 @@ context Airplane
 	inv: self.totalSeats > 0
 
 module QueryTest
-	select Person.* with Person::* as q0
-	select Flight.* with Flight::* as q1
-	select Airplane.* with Airplane::* as q2
-	select Person.*, Person:*:* with Person::* but Person::inv1 as q3
-	select Person.name, Flight.*, Airplane.*, *:*:* with *::* but Flight::inv3, Airplane::inv5 as q4
+	select Person.*, Person:*:* with Person::* as q0
+	select Flight, Airplane with Flight::* as q1
+	select Person.* with Person::* as q2
+	select Flight.* with Flight::* as q3
+	select Airplane.* with Airplane::* as q4
+	select Person.*, Person:*:* with Person::* but Person::inv1 as q5
+	select Person.name, Flight.*, Airplane.*, *:*:* with *::* but Flight::inv3, Airplane::inv5 as q6
 end
 
 -- Binary expressions to test using terminal
