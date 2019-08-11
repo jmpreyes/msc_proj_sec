@@ -1,13 +1,13 @@
 # QMaxUSE Project
 
 ## QMaxUSE is a query-based language designed for selection of UML class diagram features.
-### These features include:
-### * Classes
-### * Attributes
-### * Associations
-### * Invariants
+These features include:
+* Classes
+* Attributes
+* Associations
+* Invariants
 
-## QMaxUSE is integrated with [MaxUSE](https://github.com/classicwuhao/maxuse), a modeling tool.
+QMaxUSE is integrated with [MaxUSE](https://github.com/classicwuhao/maxuse), a modeling tool.
 
 ### More to come very soon!
 
