@@ -47,6 +47,8 @@ module QueryA4
 	select *.isStudent with *::* but Paper::* as q2
 	select Researcher.isStudent, Paper.studentPaper with Researcher::*, Paper::* as q3
 	select Researcher.*, Paper.*, *:Writes:* with Researcher::*, Paper::* but Researcher::inv2, Paper::inv5 as q4
+	-- testing failed binary expression
+	--select Researcher.* + select Person.* as queryTest
 end
 
 -- Binary expressions to test using terminal
